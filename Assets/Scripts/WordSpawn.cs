@@ -30,10 +30,6 @@ public class WordSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        messageDeconstructed = message[currentMessage].Split(' ');
-
-       
-
         if (Input.GetMouseButtonDown(0)) //cycle through dialogue
         {
             currentMessage++;
@@ -52,6 +48,7 @@ public class WordSpawn : MonoBehaviour
 
     private void ShowMessage()
     {
+        messageDeconstructed = message[currentMessage].Split(' ');
 
         do
         {
@@ -64,7 +61,7 @@ public class WordSpawn : MonoBehaviour
             }
 
         }
-        while (i <= messageDeconstructed.Length - 1);
+        while (i <= messageDeconstructed.Length - 2);
 
    
 

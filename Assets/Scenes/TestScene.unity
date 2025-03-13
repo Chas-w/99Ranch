@@ -816,11 +816,13 @@ MonoBehaviour:
   textMeshObject: {fileID: 149106543}
   spawnSpeedMax: 10
   currentMessage: 0
-  nextMessage: 1
+  nextMessage: 0
   triggerText: 0
   message:
   - My name is tom omal
   - Let's get some fish
+  - I can't eat pizza
+  - want to fuck tonight
   messageDeconstructed: []
 --- !u!1 &9171101326910553
 GameObject:
