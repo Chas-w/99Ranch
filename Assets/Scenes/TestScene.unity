@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6211"
+  m_text: "\u4F60 \u7684 \u7231 \u5728 \u54EA \u91CC!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4cb5dfad9438af244906d233d6f9b8ed, type: 2}
   m_sharedMaterial: {fileID: 1090687410485416281, guid: 4cb5dfad9438af244906d233d6f9b8ed, type: 2}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
+  m_overrideHtmlColors: 1
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 1883980625}
   - component: {fileID: 1883980626}
   - component: {fileID: 1883980627}
+  - component: {fileID: 1883980628}
   m_Layer: 0
   m_Name: TextSpace
   m_TagString: Untagged
@@ -772,13 +773,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883980624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.631, y: 1.23, z: 0.329}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0923171, y: -0, z: -0, w: 0.9957297}
+  m_LocalPosition: {x: -0.61523086, y: -0.028083373, z: 0.33158687}
+  m_LocalScale: {x: 0.9750093, y: 0.9750093, z: 0.9750093}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1607098582}
-  m_Father: {fileID: 543450652323253579}
+  m_Father: {fileID: 3151927361402438316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1883980626
 BoxCollider:
@@ -814,17 +815,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshObject: {fileID: 149106543}
-  spawnSpeedMax: 10
+  spawnSpeedMax: 0.25
   currentMessage: 0
   nextMessage: 0
   triggerText: 0
   message:
-  - My name is tom omal
-  - Let's get some fish
+  - I am eyeball guy
+  - "Let's get some \u9C7C"
   - I can't eat pizza
-  - want to fuck tonight
-  - "\u5C41\u80A1"
+  - I don't poop anymore
+  - "\u5C41 \u80A1"
   messageDeconstructed: []
+--- !u!114 &1883980628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883980624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b297e85de7775a64fb7a81fac2f343c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wordSpawn: {fileID: 1883980627}
+  messageTranslatable: 0001000001
+  translatableWordsInSentence:
+  - 
+  - Let's get some FISH
+  - 
+  - 
+  - BUTT
 --- !u!1 &9171101326910553
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +912,6 @@ Transform:
   - {fileID: 3151927361402438316}
   - {fileID: 5465940245748968927}
   - {fileID: 2295986707812394202}
-  - {fileID: 1883980625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &608321760704679132
@@ -1228,7 +1248,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 1.3208356, z: 0.0000057664924}
   m_LocalScale: {x: 1.0256312, y: 1.0256312, z: 1.0256312}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1883980625}
   m_Father: {fileID: 543450652323253579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3661821583317535287

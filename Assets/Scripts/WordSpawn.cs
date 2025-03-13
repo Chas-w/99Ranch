@@ -8,14 +8,14 @@ public class WordSpawn : MonoBehaviour
 {
     [Header("Word Data")]
     [SerializeField] TextMeshProUGUI textMeshObject;
-    [SerializeField] int spawnSpeedMax;
-    [SerializeField] int currentMessage;
+    [SerializeField] float spawnSpeedMax;
+    public int currentMessage;
     public bool nextMessage;
     public bool triggerText = false; 
 
 
     [Header("Message Contents")]
-    [SerializeField] string[] message;
+    public string[] message;
     [SerializeField] string[] messageDeconstructed;
 
     string displayMessage = "";
@@ -25,17 +25,16 @@ public class WordSpawn : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        spawnSpeed = spawnSpeedMax;
+        //spawnSpeed = spawnSpeedMax;
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) //cycle through dialogue
         {
-            currentMessage++;
-            i = 0; 
+            currentMessage++; 
             nextMessage = false;
-            displayMessage = ""; 
+            ResetMessage();
         }
 
         ShowMessage(); 
@@ -45,16 +44,42 @@ public class WordSpawn : MonoBehaviour
 
     }
 
+    public void ResetMessage()
+    {
+        spawnSpeed = spawnSpeedMax;
+        i = 0;
+        displayMessage = "";
+        return; 
+    }
 
     private void ShowMessage()
     {
         messageDeconstructed = message[currentMessage].Split(' ');
 
+        /*
         for (;  i < messageDeconstructed.Length; i++)
         {
-            displayMessage += messageDeconstructed[i] + " ";
-            Debug.Log(i);
 
+
+            if (spawnSpeed < 0) 
+            {
+                displayMessage += messageDeconstructed[i] + " ";
+            }
+
+        }
+        */
+        
+        if (spawnSpeed >= 0)
+        {
+            spawnSpeed -= Time.deltaTime;
+            if (spawnSpeed < 0 && i < messageDeconstructed.Length)
+            {
+                spawnSpeed = spawnSpeedMax;
+                displayMessage += messageDeconstructed[i] + " ";
+                i++;
+
+            }
+            Debug.Log(i);
         }
 
 

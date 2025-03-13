@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Translatable : MonoBehaviour
 {
-    public string[] translatableInSentence; 
+    public WordSpawn wordSpawn; 
+    [SerializeField] bool[] messageTranslatable; 
+    public string[] translatableWordsInSentence; 
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,10 @@ public class Translatable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T) && messageTranslatable[wordSpawn.currentMessage])
+        {
+            wordSpawn.message[wordSpawn.currentMessage] = translatableWordsInSentence[wordSpawn.currentMessage];
+            wordSpawn.ResetMessage();
+        }
     }
 }
