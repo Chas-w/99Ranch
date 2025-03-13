@@ -50,20 +50,14 @@ public class WordSpawn : MonoBehaviour
     {
         messageDeconstructed = message[currentMessage].Split(' ');
 
-        do
+        for (;  i < messageDeconstructed.Length; i++)
         {
-
-            if (messageDeconstructed[i] != null)
-            {
-                displayMessage += messageDeconstructed[i] + " ";
-                i++;
-                Debug.Log(i);
-            }
+            displayMessage += messageDeconstructed[i] + " ";
+            Debug.Log(i);
 
         }
-        while (i <= messageDeconstructed.Length - 2);
 
-   
+
 
     }
 
