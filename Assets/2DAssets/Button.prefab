@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4294511373058385372}
   - component: {fileID: 2078825049967713701}
   - component: {fileID: 2248141537124478254}
+  - component: {fileID: 8066337201047666217}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -122,7 +123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4294511373058385372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8066337201047666217}
+        m_TargetAssemblyTypeName: DictionaryButtonLogic, Assembly-CSharp
+        m_MethodName: AddToTextBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AddTextToBox()
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2248141537124478254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +150,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chineseCharacter: {fileID: 1402701059377697112}
   englishTranslation: {fileID: 5263142115286934516}
+--- !u!114 &8066337201047666217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415093684930774215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564cc27bfb725154687e794eb63418b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wordToDisplay: {fileID: 1402701059377697112}
+  textBox: {fileID: 0}
+  textBoxObject: {fileID: 0}
 --- !u!1 &4779510324547288490
 GameObject:
   m_ObjectHideFlags: 0

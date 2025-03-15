@@ -66,7 +66,7 @@ public class PlayerDictionary : MonoBehaviour
       
             do
             {
-                dictionaryUI.MakeButton(parsedDictionary[j], parsedDictionary[j + 1]);
+                dictionaryUI.MakeButton(parsedDictionary[j], parsedDictionary[j + 1], false);
                 j += 2;
 
             }
