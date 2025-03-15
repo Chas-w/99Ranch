@@ -15,8 +15,8 @@ public class WordSpawn : MonoBehaviour
     public bool triggerText = false;
 
     [Header("Message Contents")]
-    public string[] message;
-    public string[] secondMessage; 
+    public List<string> message;
+
     public string[] messageDeconstructed;
 
 
@@ -24,7 +24,7 @@ public class WordSpawn : MonoBehaviour
     [Header("Word Data")]
     public string[] translatableWords;
     public string[] translatedSentenceDeconstructed;
-    public TranslatedInventory playerDictionary;
+    public PlayerDictionary playerDictionary;
     [SerializeField] string newMessage;
 
     [Header("Audio Data")]
@@ -40,20 +40,21 @@ public class WordSpawn : MonoBehaviour
     public string displayMessage = "";
     float spawnSpeed;
     int i = 0;
+    int messageLength; 
     bool playedAudio; 
 
     // Start is called before the first frame update
     private void Start()
     {
-        //spawnSpeed = spawnSpeedMax;
     }
     // Update is called once per frame
     void Update()
     {
+        messageLength = message.Count;
 
         if (Input.GetKeyDown(nextKey)) //cycle through dialogue
         {
-            if (currentMessage < message.Length - 1) //if there is a next dialogue option
+            if (currentMessage < messageLength - 1) //if there is a next dialogue option
             {
                 currentMessage++;
             } else { currentMessage = 0; } //otherwise return to the beginning
@@ -95,11 +96,11 @@ public class WordSpawn : MonoBehaviour
             {
                 spawnSpeed = spawnSpeedMax; //reset the timer
 
-                for (int j = 0; j < playerDictionary.knownDictionary.Length; j++) //cycle through each TRANSLATABLE word 
+                for (int j = 0; j < playerDictionary.parsedDictionaryLength; j+=2) //cycle through each TRANSLATABLE word 
                 {
-                    if (messageDeconstructed[i].Contains(playerDictionary.knownDictionary[j])) //if the word in the deconstructed sentence has a translatable word
+                    if (messageDeconstructed[i].Contains(playerDictionary.parsedDictionary[j])) //if the word in the deconstructed sentence has a translatable word
                     {
-                        messageDeconstructed[i] = "<gradient=\"Translatable\">" + playerDictionary.knownDictionary[j] + "</gradient>"; //change the color of the translatable word
+                        messageDeconstructed[i] = "<gradient=\"Translatable\">" + playerDictionary.parsedDictionary[j] + "</gradient>"; //change the color of the translatable word
                     }
                 }
 
@@ -111,18 +112,18 @@ public class WordSpawn : MonoBehaviour
     }
 
 
-    private void TranslateSentence() //will probably have to deal with this later to make it work with the translated words inventory;
+    private void TranslateSentence() //will probably have to deal with this later to make it work with the translated words inventory; 
     {
         translatedSentenceDeconstructed = messageDeconstructed; //store each word in the sentence in an array *this needs to happen ONCE per updated sentence
         newMessage = "";
 
         for (int i = 0; i < translatedSentenceDeconstructed.Length; i++) //cycle through each word in the array
         {
-            for (int j = 0; j < playerDictionary.knownDictionary.Length; j++) //cycle through each TRANSLATABLE word 
+            for (int j = 1; j < playerDictionary.parsedDictionaryLength; j+=2) //cycle through each TRANSLATABLE word 
             {
-                if (translatedSentenceDeconstructed[i].Contains(playerDictionary.knownDictionary[j])) //if the word in the deconstructed sentence has a translatable word
+                if (translatedSentenceDeconstructed[i].Contains(playerDictionary.parsedDictionary[j - 1])) //if the word in the deconstructed sentence has a translatable word
                 {                    
-                    translatedSentenceDeconstructed[i] = "<gradient=\"Translatable\">" + playerDictionary.knownDictionaryTranslation[j] + "</gradient>"; //assign the TRANSLATED WORD and replace the TRANSLATABLE word in the deconstructed sentence
+                    translatedSentenceDeconstructed[i] = "<gradient=\"Translatable\">" + playerDictionary.parsedDictionary[j] + "</gradient>"; //assign the TRANSLATED WORD and replace the TRANSLATABLE word in the deconstructed sentence
                 }
             }
             newMessage += translatedSentenceDeconstructed[i] + " "; //construct the sentence
