@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 720213606}
   m_Layer: 5
   m_Name: Textbox
-  m_TagString: WordInput
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1569034a3a1d7e24e856e0d3d6e2441e, type: 3}
   - {fileID: 8300000, guid: 747174c0afffb7d438a3c314eef6f9fd, type: 3}
   - {fileID: 8300000, guid: c112b42e2dc34fb4d9d35bd29a3e5ef1, type: 3}
-  nextKey: 32
+  nextKey: 101
   translate: 304
   waitingForResponse: []
   displayMessage: 
@@ -2762,7 +2762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 24.972, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1, y: -109.600006}
+  m_AnchoredPosition: {x: -1, y: -109.60002}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7304993428481025462
